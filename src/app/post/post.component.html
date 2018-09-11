@@ -1,0 +1,45 @@
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-lg-12">
+				<h1 class="h1 text-center">
+					{{post.postTitle}}
+				</h1>
+			</div>
+		</div>
+	</div>
+
+<div class="container">
+	<!-- <div class="card  "> -->
+	<div class="panel panel-default widget">
+		<div class="panel-body">
+
+			<ng-container
+				*ngIf="post != null  then postsTemplate; else defaultTemplate"></ng-container>
+			<ng-template #postsTemplate>
+
+			<div class="card padding-4em"
+				style="background-color: #4DB6AC; color: white; margin: 30px;">
+
+				<div class="card-body">
+					
+					<span class="card-text" style="white-space:pre-wrap;"> {{post.postDescription}}</span>
+				</div>
+				<div class="card-footer"><i class="fa fa-calendar float-left"> {{post.postDate | date:'dd-MMM-yyyy hh:mm'}}</i>
+				<i class="fa fa-user float-right"> {{post.userName}}</i></div>
+			</div>
+			</ng-template>
+			<ng-template #defaultTemplate>
+			<p class="text text-danger">No posts to display. Please Add Post
+				or Check Back-end Network Connection.</p>
+			</ng-template>
+
+		</div>
+
+	</div>
+</div>
+<!-- </div> -->
+
+
+

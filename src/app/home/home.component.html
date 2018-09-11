@@ -1,0 +1,124 @@
+<!-- <body class="bg-light"> -->
+<div class="jumbotron jumbotron-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-lg-12">
+				<h1 class="h1">
+					<i class="fa fa-fw fa-dashboard"></i>DashBoard
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<div class="panel panel-default widget">
+
+		<div class="panel-body">
+			<div class="row" align="left">
+
+				<div class="col-lg-6 col-sm-6">
+					<div class="panel panel-default widget">
+						<div class="panel-heading" align="left">
+							<h3>
+								<i class="fa fa-fw fa-tag"></i>Add Post
+							</h3>
+						</div>
+						<br />
+						<div class="panel-body">
+							<form ngNativeValidate>
+								<div class="form-group">
+									<div class="input-group input-group-lg">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i class="fa fa-user"></i></span>
+										</div>
+										<input [(ngModel)]="post.userName" name="userName" type="text"
+											class="form-control" placeholder="Enter Username..."
+											required="required">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group input-group-lg">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="material-icons">title</i></span>
+										</div>
+										<input type="text" class="form-control" name="postTitle"
+											placeholder="Enter Title..." required="required"
+											[(ngModel)]="post.postTitle">
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="input-group input-group-lg">
+										<div class="input-group-prepend">
+											<span class="input-group-text"><i
+												class="material-icons">comment</i></span>
+										</div>
+										<textarea class="form-control" name="postDescription" rows="5"
+											cols="10" placeholder="Enter Post Description..." required="required"
+											[(ngModel)]="post.postDescription"></textarea>
+									</div>
+								</div>
+								<br />
+								<button
+									[ngClass]="status == ''? 'btn btn-primary btn-block btn-lg' : (status == 'success')?'btn btn-success btn-block btn-lg': 'btn btn-danger btn-block btn-lg' "
+									(click)="createPost()">{{ status == ''? 'Submit' :
+									status == 'success'?'Submitted': 'Check Errors'}}</button>
+								<!-- <button [(ngModel)]="clear" class="btn btn-default"
+							(click)="reset()">Clear</button> -->
+							</form>
+						</div>
+					</div>
+				</div>
+				<div class="col-lg-6 col-sm-6">
+					<div class="panel panel-default widget">
+						<div class="panel-heading">
+							<h3>
+								<i class="fa fa-fw fa-tags"></i>Recent Posts <span
+									class="badge badge-dark"></span>
+							</h3>
+						</div>
+						<br />
+						<ng-container
+							*ngIf="posts?.length > 0 || posts != null; then postsTemplate; else defaultTemplate"></ng-container>
+						<ng-template #postsTemplate>
+						<div class="panel-body">
+							<ul class="list-group" *ngFor="let post of posts | slice:0:3 ">
+								<li class="list-group-item"
+									style="background-color: #B2DFDB; margin: 5px;">
+									<div class="row">
+										<div class="col-xs-2 col-md-2">
+											<span><img src="assets/avatar6.png" class="avatar"></span>
+										</div>
+										<div class="col-xs-10 col-md-10">
+											<div>
+												<span class="comment-text" style="font-size: 25px;">{{post.postTitle}}</span>
+												<!-- <span class="comment-text">{{post.postDescription}}</span> -->
+
+											</div>
+											<div class="mic-info">
+												By: <a href="#">{{post.userName}}</a> On: {{post.postDate |
+												date: 'MM-dd-yyyy hh:mm'}}
+											</div>
+											<div>
+												<span class="fa fa-note"></span><span
+													class="comment-text" style="font-size: 15px; color: blue">
+													{{post.postDescription | limit: 20}}</span>
+											</div>
+										</div>
+									</div>
+								</li>
+
+							</ul>
+						</div>
+						</ng-template>
+						<ng-template #defaultTemplate>
+						<p class="text text-danger">No posts to display. Please Add
+							Post or Check Back-end Network Connection.</p>
+						</ng-template>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- </body> -->

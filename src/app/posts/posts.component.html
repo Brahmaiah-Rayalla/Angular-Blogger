@@ -1,0 +1,63 @@
+
+<div class="jumbotron jumbotron-sm">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12 col-lg-12">
+				<h1 class="h1">
+					<i class="fa fa-fw fa-tags"></i>Posts
+				</h1>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="container">
+	<!-- <div class="card  "> -->
+	<div class="panel panel-default widget">
+		<div class="panel-body">
+
+			<ng-container
+				*ngIf="posts != null || posts?.length > 0; then postsTemplate; else defaultTemplate"></ng-container>
+			<ng-template #postsTemplate>
+
+			<div class="card padding-4em"
+				style="background-color: #009688; color: white; margin: 30px;"
+				*ngFor="let post of posts | paginate: { itemsPerPage: 2, currentPage: p}">
+				<div class="card-header" style="background-color: #00695C">
+					<h3 class="folat-left">
+						{{post.postTitle}}
+						<button class="btn btn-danger float-right"
+							(click)="deletePost(post)">
+							<span class="fa fa-trash float-right fa-2x"></span>
+						</button>
+					</h3>
+				</div>
+
+
+				<div class="card-body">
+					<!-- <h5 class="card-title">Special title treatment</h5> -->
+					<p class="card-text">
+						{{post.postDescription | limit: 75}} <a href="#"
+							routerLink="app-post/{{post.id}}" class="btn btn-primary">View
+							More</a>
+					</p>
+				</div>
+				<div class="card-footer ">
+					On {{post.postDate | date: 'dd-MMM-yyyy hh:mm'}} <i
+						class="fa fa-user float-right"> {{post.userName}}</i>
+				</div>
+			</div>
+			<pagination-controls (pageChange)="p = $event"></pagination-controls>
+			</ng-template>
+			<ng-template #defaultTemplate>
+			<p class="text text-danger">No posts to display. Please Add Post
+				or Check Back-end Network Connection.</p>
+			</ng-template>
+
+		</div>
+
+	</div>
+</div>
+<!-- </div> -->
+
+
+
