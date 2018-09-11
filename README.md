@@ -1,4 +1,33 @@
-# MyBlogger
+# Blogger App using Angular 6 with CLI
+
+Blogger App developed using Angular 6 version and used below anugular concepts used
+http://brahma517.blogspot.com/2018/08/daily-work-tracker-application-using.html
+<ul>
+  <li> Angular Components </li>
+  <li> Angular Services </li>
+  <li> Angular Pipes </li>
+  <li> Bootstrap styles</li>
+  <li> Angular Models </li>
+</ul>
+# Screen prints:
+
+  Home:
+  ![Capture-1](https://github.com/Brahmaiah-Rayalla/Angular-Blogger/blob/master/Capture-1.PNG)
+  
+  Posts:
+  ![Capture-2](https://github.com/Brahmaiah-Rayalla/Angular-Blogger/blob/master/Capture-2.PNG)
+  
+  Post:
+  ![Capture-3](https://github.com/Brahmaiah-Rayalla/Angular-Blogger/blob/master/Capture-3.PNG)
+  
+  ContactUS:
+  ![Capture-4](https://github.com/Brahmaiah-Rayalla/Angular-Blogger/blob/master/Capture-4.PNG)
+  
+  AddPost:
+  ![Capture-5](https://github.com/Brahmaiah-Rayalla/Angular-Blogger/blob/master/Capture-5.PNG)
+
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
