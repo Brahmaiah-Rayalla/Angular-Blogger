@@ -1,7 +1,7 @@
 # Blogger App using Angular 6 with CLI
 
 Blogger App developed using Angular 6 version and used below anugular concepts used
-http://brahma517.blogspot.com/2018/08/daily-work-tracker-application-using.html
+http://brahma517.blogspot.com/2018/09/blogger-app-using-angular-6-with-cli.html
 <ul>
   <li> Angular Components </li>
   <li> Angular Services </li>
